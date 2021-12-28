@@ -8,15 +8,15 @@ import TodoList from "./TodoList";
 import TodoForm from "./TodoForm";
 
 function TodoApp() {
-    const initialTodos = [
-        {id: 1, task: "Clean Fishtank", complete: false},
-        {id: 2, task: "Wash car", complete: false},
-        {id: 3, task: "Grow beard", complete: true}
-    ];
-    const [todos, setTodos] = useState(initialTodos);
-    const addTodo = newTodoText => {
-        setTodos([...todos, { id: 4, task: newTodoText, complete: false}])
-    }
+	const initialTodos = [
+		{ id: 1, task: "Clean Fishtank", complete: false },
+		{ id: 2, task: "Wash car", complete: false },
+		{ id: 3, task: "Grow beard", complete: true },
+	];
+	const [todos, setTodos] = useState(initialTodos);
+	const addTodo = (newTodoText) => {
+		setTodos([...todos, { id: 4, task: newTodoText, complete: false }]);
+	};
 	return (
 		<Paper
 			style={{
@@ -32,8 +32,12 @@ function TodoApp() {
 					<Typography color="inherit">TODOS WITH HOOKS</Typography>
 				</Toolbar>
 			</AppBar>
-            <TodoForm addTodo={addTodo}/>
-            <TodoList todos={todos} />
+			<Grid container justify="center" style={{ marginTop: "1rem" }}>
+				<Grid item xs={11} md={8} lg={4}>
+					<TodoForm addTodo={addTodo} />
+					<TodoList todos={todos} />
+				</Grid>
+			</Grid>
 		</Paper>
 	);
 }
